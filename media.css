@@ -1,0 +1,745 @@
+/* ================== Reset ================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ================== Base Responsive Layout ================== */
+.note {
+    font-size: 18px;
+    margin: 20px auto;
+    width: 80%;
+    line-height: 1.5;
+}
+
+.projects,
+.art_work {
+    display: grid;
+    gap: 20px;
+}
+/* Height */
+@media (min-height: 1300px){
+    .container{
+        height: 700px !important;
+    }
+    .navbar{
+        height: 698px !important;
+    }
+}
+/* ================== Breakpoints ================== */
+@media (max-width: 1500px) {
+    .mobile-alert{
+        display: none;
+    }
+
+    .note {
+        font-size: 16px;
+        margin-top: 10px;
+        margin-bottom: 40px;
+        width: 85%;
+    }
+
+    .projects {
+        grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+    }
+
+    .flip-card {
+        width: 250px;
+        height: 300px;
+        margin: 0 auto 40px;
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+        width: 100%;
+        height: 100%;
+    }
+
+    .flip-card-front h3 {
+        font-size: 20px;
+    }
+
+    .flip-card-front p {
+        font-size: 15px;
+    }
+
+    .container.collapsed .main .work .works .projects {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    /* ==============Illustration Works ========================*/
+    .art_work {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-rows: 350px 320px 300px;
+    }
+
+    .art_work img {
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    .container.collapsed .main .work .illustration .art_work img {
+        width: 260px;
+        transition: 1s ease;
+    }
+
+    /* ==========================Popup Window ===================*/
+    .popup-window {
+        width: 800px;
+        height: 600px;
+    }
+
+    /* =======================ABOUT ME ============= */
+    .aboutme h1 {
+        font-size: 30px;
+    }
+
+    .aboutme p {
+        font-size: 16px;
+    }
+
+    .journey h2,
+    .main-skills h2,
+    .fun-facts h2 {
+        font-size: 30px;
+    }
+
+    .content h3 {
+        font-size: 20px;
+    }
+
+    .content p {
+        font-size: 16px;
+    }
+
+    .fun-facts li {
+        font-size: 16px;
+    }
+
+    .skill-card {
+        font-size: 16px;
+    }
+
+}
+
+@media (max-width: 1300px) {
+    .container {
+        width: 80%;
+        height: 550px;
+    }
+
+    .navbar {
+        height: 548px
+    }
+
+    .nav-container a>p {
+        font-size: 20px;
+    }
+
+    .intro-container h1 {
+        font-size: 50px;
+    }
+
+
+    /* ====================================WORK ============================= */
+    .works h1 {
+        font-size: 30px;
+    }
+
+    .note {
+        font-size: 16px;
+        margin-top: 10px;
+        margin-bottom: 40px;
+        width: 80%;
+    }
+
+    .projects {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .flip-card {
+        width: 250px;
+        height: 300px;
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+        position: absolute;
+        width: 240px;
+        height: 300px;
+    }
+
+    .flip-card-front h3 {
+        font-size: 20px;
+    }
+
+    .flip-card-front p {
+        font-size: 16px;
+    }
+
+    .skills span {
+        font-size: 10px;
+    }
+
+    .container.collapsed .main .work .works .projects {
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    }
+
+    /* ==============Illustration Works ========================*/
+    .art_work {
+        grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+        grid-template-rows: 350px 300px 300px;
+    }
+
+    .art_work img {
+        width: 250px;
+    }
+
+    .container.collapsed .main .work .illustration .art_work img {
+        width: 260px;
+        transition: 1s ease;
+    }
+
+    /* ==========================Popup Window ===================*/
+    .popup-window {
+        width: 800px;
+        height: 600px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .container {
+        height: 550px;
+    }
+
+    .navbar {
+        height: 548px;
+    }
+
+    .nav-container a>p {
+        font-size: 18px;
+    }
+
+    .art_work {
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+        grid-template-rows: 350px 300px 300px;
+    }
+
+    .popup-window {
+        width: 800px;
+        height: 600px;
+    }
+
+}
+
+/* =========================== Mobile Styles ========================== */
+@media (max-width: 900px) {
+
+    body {
+        transition: none;
+        background-color: var(--body-background);
+        display: block;
+        min-height: 100vh;
+    }
+
+    .arrow {
+        display: none;
+    }
+
+    /* SOUND AND MODE */
+    
+    /* Top responsive bar (burger, sound, mode) */
+    .responsive {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: var(--nav-color);
+        z-index: 100;
+    }
+    
+    .burger {
+        display: block;
+        font-size: 40px;
+        color: #F0E6FF;
+        left: 0;
+    }
+
+    .responsive>.sound>i {
+        color: #F0E6FF;
+        position: absolute;
+        right: 70px;
+        top: 10px;
+        left: auto;
+        font-size: 50px;
+    }
+
+    .mode>i {
+        color: #F0E6FF;
+        position: absolute;
+        font-size: 50px;
+        right: 10px;
+        top: 10px;
+        left: auto;
+        cursor: pointer;
+    }
+
+    .container {
+        background-color: transparent;
+        display: inline-block;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        margin: 50px auto 0;
+        padding: 20px;
+        border: none;
+        overflow-x: visible;
+    }
+
+    .navbar {
+        border: none;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    .nav-container {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--nav-color);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+        z-index: 150;
+    }
+
+    .nav-container.active {
+        display: flex;
+    }
+
+    .nav-container a {
+        font-size: 40px;
+        padding: 8px 15px;
+    }
+
+    /* Intro */
+    .main {
+        height: 90vh;
+
+    }
+
+    .intro-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .intro-container h1 {
+        font-size: 60px;
+    }
+
+    .intro-container p {
+        font-size: 30px;
+        max-width: 90%;
+        margin: 10px auto;
+    }
+
+    /* Projects / Work section */
+    .work{
+        display: block;
+    }
+    .note {
+        font-size: 18px;
+        width: 95%;
+        margin-top: 30px;
+    }
+
+    .projects {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .flip-card{
+        display: none;
+    }
+    .normal-card{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 30px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+
+    }
+    .normal-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+    }
+    .normal-container h3{
+        color: var(--heading-color);
+    }
+    .normal-card > .normal-container > img{
+        width: 350px;
+        height: auto;
+        object-fit: contain;
+    }
+    .skills{
+        width: 80%;
+        margin-top: 20px;
+    }
+    .skill-btn{
+        display: flex;
+        gap: 2px;
+    }
+    .skill-btn a{
+        width: 100px;
+        font-size: 16px;
+    }
+    .skills h3{
+        font-size: 20px;
+    }
+    .skills p{
+        color: var(--black);
+        font-size: 16px;
+    }
+    .skills span{
+        font-size: 16px;
+    }
+    .skills a{
+        margin-top: 10px;
+        box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.3);
+        background-color: var(--accent-color);
+        color: var(--black);
+        cursor: pointer;
+    }
+    .skills a:hover{
+        background-color: #0c3c89;
+        color: white;
+    }
+
+    /* Artwork grid */
+    .illustration h1, .works h1{
+        font-size: 40px;
+        margin-top: 40px;
+        margin-bottom: 50px;
+    }
+
+    .art_work {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .art_work img {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    /* ABOUT ME Road Map */
+    .aboutme{
+        display: block;
+        background-color: transparent;
+        border-bottom: 2px solid #d0cfd1;
+    }
+
+    .intro p{
+        font-size: 18px;
+    }
+
+    .roadmap {
+        max-width: 100%;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .step {
+        border-left: 2px solid var(--black);
+        padding-left: 60px; 
+        height: auto;
+        margin-bottom: 40px;
+    }
+
+    .circle {
+        left: -15px; 
+        top: 0;
+        font-size: 20px;
+        padding: 6px;
+    }
+
+    .content h3 {
+        font-size: 18px;
+    }
+
+    .content p {
+        font-size: 18px;
+    }
+
+    .fun-facts{
+        padding-bottom: 100px;
+    }
+    .fun-facts ul li{
+        font-size: 18px;
+    }
+
+    /* Footer should sit at bottom in normal flow */
+    footer {
+        position: relative;
+        z-index: 1;
+        top: 20px;
+        padding: 10px 10px;
+        text-align: center;
+        color: #fff;
+    }
+
+    footer .socials a{
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 100%;
+    }
+}
+
+
+@media (max-width: 750px) {
+
+    /* Sound */
+    .responsive>.sound>i {
+        font-size: 35px;
+    }
+
+    .mode>i {
+        font-size: 35px;
+    }
+
+    .mode>i:hover {
+        transform: none;
+    }
+
+    .intro-container h1 {
+        font-size: 50px;
+    }
+    .intro-container p{
+        font-size: 25px;
+    }
+
+    /* Work grid */
+    .works h1{
+        font-size: 40px;
+    }
+    .normal-container{
+        flex-wrap: wrap;
+    }
+
+    .illustration h1, .works h1{
+        font-size: 40px;
+    }
+
+    .art_work {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-rows: 250px 250px;
+    }
+
+    .art_work img {
+        max-width: 200px;
+        margin: 0 auto;
+    }
+
+    /* About me */
+    .aboutme h1{
+        font-size: 40px;
+    }
+
+    /* contact me */
+    .contact h2{
+        font-size: 40px;
+    }
+    .contact p{
+        font-size: 20px;
+    }
+    .contact a{
+        font-size: 25px;
+    }
+
+    footer {
+        position: relative;
+        z-index: 1;
+        top: 20px;
+        padding: 10px 10px;
+        text-align: center;
+        color: #fff;
+    }
+    footer .socials a img{
+        width: 30px;
+    }
+    footer .socials a{
+        background-color: #F0E6FF;
+        padding: 10px;
+        border-radius: 100%;
+        margin-bottom: 10px;
+    }
+
+}
+
+/* =========================== Small Phones ========================== */
+@media (max-width: 600px) {
+
+    body {
+        display: block;
+        background-color: var(--body-background);
+        min-height: 100vh;
+    }
+
+    .container {
+        width: 100%;
+        margin: 70px auto 0;
+        /* space for fixed navbar */
+        padding: 15px;
+        border: none;
+        background-color: var(--background-color);
+    }
+
+    .responsive {
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 10px 15px;
+        background-color: var(--nav-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        z-index: 100;
+    }
+
+    /* Icons */
+    .responsive>.sound>i,
+    .mode>i {
+        font-size: 32px;
+        color: #F0E6FF;
+        cursor: pointer;
+    }
+
+    .burger i {
+        font-size: 40px;
+        color: #F0E6FF;
+    }
+
+    /* Navbar overlay */
+    .nav-container {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--nav-color);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        z-index: 150;
+    }
+
+    .nav-container.active {
+        display: flex;
+    }
+
+    .nav-container a {
+        font-size: 20px;
+        padding: 8px 12px;
+    }
+
+    /* Intro text */
+    .intro-container {
+        text-align: center;
+        padding: 30px 15px;
+    }
+
+    .intro-container h1 {
+        font-size: 40px;
+    }
+
+    .intro-container p {
+        font-size: 20px;
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    /* Work / Projects */
+    .works h1 {
+        margin-top: 0;
+    }
+
+    .note {
+        font-size: 14px;
+        margin-top: 15px;
+        width: 100%;
+    }
+
+    .skills{
+        margin-top: 20px;
+    }
+    .skills h3{
+        font-size: 22px;
+    } 
+
+    .skills p{
+        color: var(--black);
+        font-size: 16px;
+    }
+    .skills span{
+        font-size: 16px;
+    }
+    .normal-card > .normal-container > img{
+        width: 300px;
+        height: auto;
+        object-fit: contain;
+    }
+
+    /* Artworks */
+    .art_work {
+        grid-template-columns: 1fr;
+        grid-template-rows: 300px 300px;
+    }
+
+    .art_work img {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    /* About me */
+    .fun-facts ul{
+        width: 100%;
+    }
+
+    /* Footer */
+    footer {
+        margin-top: 5px;
+        padding: 15px 10px;
+        text-align: center;
+        color: #fff;
+        position: relative;
+        z-index: 1;
+    }
+}

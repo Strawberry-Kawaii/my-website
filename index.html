@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shekina's Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+
+    <!-- IconScout CDN -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.2.0/css/line.css">
+
+    <!-- Portfolio CSS -->
+    <link rel="stylesheet" href="./Portfolio_style.css">
+    <link rel="stylesheet" href="./media.css">
+</head>
+
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="loader-text">0%</div>
+    </div>
+
+
+    <div id="mobile-alert" class="mobile-alert">
+        <p>For a better viewing experience, please use a desktop or larger screen.</p>
+        <span id="close-alert" class="close-alert">&times;</span>
+    </div>
+
+
+    <div class="responsive">
+        <!-- Burger Icon -->
+        <div class="burger" id="burger">
+            <i class="uil uil-bars"></i>
+        </div>
+        <div class="sound">
+            <i class="uil uil-volume"></i>
+            <i class="uil uil-volume-off off"></i>
+        </div>
+        <div class="mode">
+            <i class="uil uil-moon"></i>
+            <i class="uil uil-sun"></i>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- ===================== NAVBAR =========================== -->
+        <div class="navbar">
+            <div class="arrow">
+                <a href="#" class="a side left-toggle show">
+                    <i class="uil uil-arrow-circle-left"></i>
+                </a>
+                <a href="#" class="a side right-toggle show">
+                    <i class="uil uil-arrow-circle-right"></i>
+                </a>
+            </div>
+
+            <div class="nav-container" id="nav-links">
+                <!-- Home -->
+                <a href="#" id="home" class="sound-effect">
+                    <i class="uil uil-home"></i>
+                    <p>Home</p>
+                </a>
+
+                <!-- About Me -->
+                <a href="#" id="aboutme" class="sound-effect">
+                    <i class="uil uil-info-circle"></i>
+                    <p>About Me</p>
+                </a>
+
+                <!-- Work -->
+                <a href="#" id="myWork" class="sound-effect">
+                    <i class="uil uil-folder"></i>
+                    <p>My Work</p>
+                </a>
+
+                <!-- Contact Me -->
+                <a href="#" id="contactme" class="sound-effect">
+                    <i class="uil uil-envelope"></i>
+                    <p>Contact Me</p>
+                </a>
+            </div>
+        </div>
+
+        <!--========================================== NAVIGATION ================================================== -->
+        <div class="main">
+            <div class="intro-container">
+                <h1>Hello, I'm Shekina</h1>
+                <p> I am a fullstack developer and illustrator</p>
+                <div class="btn" id="resumeBtn">My Resume</div>
+                <div id="resumePopup1" class="popup-window window2">
+                    <div class="popup-header">
+                        <span class="popup-title">My Resume</span>
+                        <span class="popup-close" id="resumeClose1">&times;</span>
+                    </div>
+                    <div class="popup-body">
+                        <iframe src="./CVResume/My_Resume.pdf" class="pdf-frame"></iframe>
+                    </div>
+                </div>
+            </div>
+            <!-- ================ About Me ========================== -->
+            <!-- About Me Section -->
+            <div class="aboutme">
+                <!-- Hero / Intro -->
+                <div class="intro">
+                    <h1>About Me</span></h1>
+                    <div class="intro-p">
+                        <p>
+                            Enthusiastic entry-level web developer with practical experience building
+                            and managing responsive websites. Creative and meticulous, with a passion
+                            for integrating subtle illustration elements into web projects.
+                        </p>
+                        <p class="tagline">Blending creativity and functionality in every project I build.</p>
+                    </div>
+                </div>
+
+                <!-- Journey / Roadmap -->
+                <div class="journey">
+                    <h2>My Journey</h2>
+                    <div class="roadmap">
+                        <div class="step">
+                            <div class="circle"><i class="uil uil-book-open"></i></div>
+                            <div class="content">
+                                <p>2023</p>
+                                <h3>Started my IT studies</h3>
+                                <p>Building a foundation in software and web development.</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="circle"><i class="uil uil-pen"></i></div>
+                            <div class="content">
+                                <p>2024</p>
+                                <h3>Explored design & illustration</h3>
+                                <p>Experimenting with blending visuals and code.</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="circle"><i class="uil uil-arrow"></i></div>
+                            <div class="content">
+                                <p> 2024 </p>
+                                <h3>Decided to go into web development</h3>
+                                <p>Started creating my first responsive projects.</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="circle"><i class="uil uil-rocket"></i></div>
+                            <div class="content">
+                                <p>2025</p>
+                                <h3>Enhancing my skills</h3>
+                                <p>Working towards becoming a full-stack developer and building creative web
+                                    experiences.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills Section -->
+                <div class="main-skills">
+                    <h2>Skills & Tools</h2>
+                    <div class="skill-grid">
+                        <div class="skill-card">HTML5</div>
+                        <div class="skill-card">CSS3</div>
+                        <div class="skill-card">JavaScript</div>
+                        <div class="skill-card">Node.js</div>
+                        <div class="skill-card">C# / Java</div>
+                        <div class="skill-card">Figma</div>
+                        <div class="skill-card">Python</div>
+                        <div class="skill-card">Inkscape</div>
+                        <div class="skill-card">Adobe</div>
+                        <div class="skill-card">MediBang</div>
+                    </div>
+                </div>
+
+                <!-- Fun Facts / Personality -->
+                <div class="fun-facts">
+                    <h2>Beyond Coding</h2>
+                    <ul>
+                        <li>🌍 Languages: I am currently proficient in Korean and a little in French!</li>
+                        <li>🎨 Hobbies: I'm sure it is already obvious but I love drawing for fun too! I love reading
+                            and
+                            writing.</li>
+                        <li>🎮 Fun Projects: Building a cozy bunny game in Godot</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--    Works -->
+            <section id="work">
+                <div class="work">
+                    <!-- =============== Flip Card Work ===============  -->
+                    <div class="works">
+                        <h1>Web Development</h1>
+                        <div class="note">Please note that my projects are still in progress. But feel free to check out
+                            my github page to check my progress and other projects I've worked on! :)</div>
+                        <div class="projects">
+
+                            <div class="normal-card">
+                                <div class="normal-container">
+                                    <img src="./images/Korean Website.jpg" alt="" loading="lazy">
+                                    <div class="skills">
+                                        <h3>Travel Website (Solo Development)</h3><br />
+                                        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Node.js</span><span>Leaflet.js</span>
+                                        <div class="skill-btn">
+                                            <a href="#" class="btn2">GitHub</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="normal-container">
+                                    <img src="./images/thisWebsite.png" alt="" loading="lazy">
+                                    <div class="skills">
+                                        <h3>This Website! (Solo Development)</h3><br />
+                                        <!-- <p>
+                                        I am currently developing an interactive travel guide website,
+                                        featuring a responsive map with custom markers and region-specific information.
+                                        This project highlights my skills in front-end development, UI design, and
+                                        creating intuitive interfaces.
+                                    </p> -->
+                                        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Responsive
+                                            Design</span>
+                                        <div class="skill-btn">
+                                            <a href="#" class="btn2">GitHub</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="normal-container">
+                                    <img src="./images/recipe.jpg" alt="Picture of Project"
+                                        loading="lazy">
+                                    <div class="skills">
+                                        <h3>C# Recipe App (Solo Project)</h3><br />
+                                        <!-- <p>
+                                        I am currently developing an interactive travel guide website,
+                                        featuring a responsive map with custom markers and region-specific information.
+                                        This project highlights my skills in front-end development, UI design, and
+                                        creating intuitive interfaces.
+                                    </p> -->
+                                        <span>C#</span><span>Database Connectivity</span><span>Coding</span>
+                                        <div class="skill-btn">
+                                            <a href="https://github.com/Strawberry-Kawaii/Recipe-App-UI" class="btn2">GitHub</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ===================== First Project ====================== -->
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <img src="./images/Korean Website.jpg" alt="Project Screenshot" loading="lazy">
+                                        <h3>Travel Website</h3>
+                                        <p>Explore South Korea</p>
+                                        <div class="skills">
+                                            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Node.js</span><span>Leaflet.js</span>
+                                        </div>
+
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <div class="back-container">
+                                            <h3>Solo Development</h3>
+                                            <a href="#" class="btn2">GitHub</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ===================== Second Project ====================== -->
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <img src="./images/thisWebsite.png" alt="Project Screenshot" loading="lazy">
+                                        <h3>This Website!</h3>
+                                        <p>Portfolio Website</p>
+                                        <div class="skills">
+                                            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Responsive
+                                                Design</span>
+                                        </div>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <div class="back-container">
+                                            <h3>Solo Development</h3>
+                                            <a href="#" class="btn2">GitHub</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ===================== First Project ====================== -->
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <img src="./images/recipe.jpg" alt="Picture of Project"
+                                            loading="lazy">
+                                        <h3>Recipe Form</h3>
+                                        <p>Windows form</p>
+                                        <div class="skills">
+                                            <span>C#</span><span>Database Connectivity</span><span>Coding</span>
+                                        </div>
+
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <div class="back-container">
+                                            <h3>Solo Project</h3>
+                                            <a href="https://github.com/Strawberry-Kawaii/Recipe-App-UI" class="btn2">GitHub</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="illustration">
+                            <h1> Illustrations</h1>
+                            <div class="art_work">
+                                <img src="./images/CityGirly2.jpg" alt="digital art of woman in the city"
+                                    loading="lazy">
+                                <img src="./images/Curly hair.jpg" alt="digital art" loading="lazy">
+                                <img src="./images/The_snow.jpg" alt="digital art" loading="lazy">
+                                <img src="./images/White.jpg" alt="digital art" loading="lazy">
+                                <img src="./images/handsome2.jpg" alt="digital art" loading="lazy">
+                                <img src="./images/final.jpg" alt="digital art" loading="lazy">
+                                <img src="./images/the first frost3.jpg" alt="digital art" loading="lazy">
+                                <img src="./images/Blue2.jpg" alt="digital art" loading="lazy">
+                                <img src="./images/ByeonWooSeok2.png" alt="digital art" loading="lazy">
+                            </div>
+                            <p>View more on my instagram page. The Link is down bellow.</p>
+                        </div>
+                        <!-- Popup Window -->
+                        <div id="popupWindow" class="popup-window">
+                            <div class="popup-header">
+                                <span class="popup-title">Illustration Preview</span>
+                                <span class="popup-close">&times;</span>
+                            </div>
+                            <div class="popup-body">
+                                <img id="popupImg" src="" alt="Artwork preview">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="contact" class="contact">
+                <div class="contact-container">
+                    <h2>Contact Me</h2>
+                    <p>Want to work with me? <a href="mabekashekina@gmail.com">Click here</a></p>
+                </div>
+            </section>
+        </div>
+
+    </div>
+    <footer class="footer">
+        <div class="socials">
+            <a href="https://www.instagram.com/kinah.and.art?igsh=Zm9xMWN2aHViZ3Bx">
+                <img src="./svg/instagram.svg" alt="instagram">
+                <!-- <p>Instagram</p> -->
+            </a>
+            <a href="https://github.com/Strawberry-Kawaii">
+                <img src="./svg/github.svg" alt="github">
+                <!-- <p>GitHub</p> -->
+            </a>
+        </div>
+        <div>Designed and coded with love by @Shekina</div>
+    </footer>
+    <script src="./javascript.js"></script>
+</body>
+
+</html>
