@@ -3,37 +3,37 @@ const popupSound = new Audio('./sound_effects/sharp-pop-328170.mp3');
 popupSound.volume = 0.3;
 
 // PRELOADER 
-document.addEventListener("DOMContentLoaded", () => {
-  const preloader = document.getElementById("preloader");
-  const loaderText = document.getElementById("loader-text");
+// document.addEventListener("DOMContentLoaded", () => {
+//   const preloader = document.getElementById("preloader");
+//   const loaderText = document.getElementById("loader-text");
 
-  let images = document.images;
-  let totalImages = images.length;
-  let loadedImages = 0;
+//   let images = document.images;
+//   let totalImages = images.length;
+//   let loadedImages = 0;
 
-  if (totalImages === 0) {
-    loaderText.textContent = "100%";
-    preloader.style.opacity = "0";
-    setTimeout(() => preloader.style.display = "none", 500);
-  } else {
-    for (let i = 0; i < totalImages; i++) {
-      let img = new Image();
-      img.onload = img.onerror = () => {
-        loadedImages++;
-        let percent = Math.floor((loadedImages / totalImages) * 100);
-        loaderText.textContent = percent + "%";
+//   if (totalImages === 0) {
+//     loaderText.textContent = "100%";
+//     preloader.style.opacity = "0";
+//     setTimeout(() => preloader.style.display = "none", 500);
+//   } else {
+//     for (let i = 0; i < totalImages; i++) {
+//       let img = new Image();
+//       img.onload = img.onerror = () => {
+//         loadedImages++;
+//         let percent = Math.floor((loadedImages / totalImages) * 100);
+//         loaderText.textContent = percent + "%";
 
-        if (loadedImages === totalImages) {
-          setTimeout(() => {
-            preloader.style.opacity = "0";
-            setTimeout(() => preloader.style.display = "none", 500);
-          }, 300);
-        }
-      };
-      img.src = images[i].src;
-    }
-  }
-});
+//         if (loadedImages === totalImages) {
+//           setTimeout(() => {
+//             preloader.style.opacity = "0";
+//             setTimeout(() => preloader.style.display = "none", 500);
+//           }, 300);
+//         }
+//       };
+//       img.src = images[i].src;
+//     }
+//   }
+// });
 
 
 // Sound 
@@ -45,33 +45,33 @@ let isMuted = false; // Track mute state
 
 // Function to mute/unmute all audio elements
 function toggleMuteAll() {
-    // Mute/unmute all <audio> elements
-    document.querySelectorAll('audio').forEach(audio => {
-        audio.muted = isMuted;
-    });
+  // Mute/unmute all <audio> elements
+  document.querySelectorAll('audio').forEach(audio => {
+    audio.muted = isMuted;
+  });
 
-    // Override Audio.prototype.play for JS-triggered sounds
-    const originalPlay = Audio.prototype.play;
-    Audio.prototype.play = function(...args) {
-        if (!isMuted) {
-            return originalPlay.apply(this, args);
-        }
-        return Promise.resolve(); // Do nothing if muted
-    };
-
-    // Toggle icons
-    if (isMuted) {
-        volumeOnIcon.style.display = 'none';
-        volumeOffIcon.style.display = 'inline-block';
-    } else {
-        volumeOnIcon.style.display = 'inline-block';
-        volumeOffIcon.style.display = 'none';
+  // Override Audio.prototype.play for JS-triggered sounds
+  const originalPlay = Audio.prototype.play;
+  Audio.prototype.play = function (...args) {
+    if (!isMuted) {
+      return originalPlay.apply(this, args);
     }
+    return Promise.resolve(); // Do nothing if muted
+  };
+
+  // Toggle icons
+  if (isMuted) {
+    volumeOnIcon.style.display = 'none';
+    volumeOffIcon.style.display = 'inline-block';
+  } else {
+    volumeOnIcon.style.display = 'inline-block';
+    volumeOffIcon.style.display = 'none';
+  }
 }
 
 soundToggle.addEventListener('click', () => {
-    isMuted = !isMuted;
-    toggleMuteAll();
+  isMuted = !isMuted;
+  toggleMuteAll();
 });
 
 
@@ -108,7 +108,7 @@ darkmode.addEventListener("click", () => {
   moonSound.cloneNode(true).play();
 
   body.classList.add("darkmode");
-  localStorage.setItem("theme", "dark"); 
+  localStorage.setItem("theme", "dark");
   darkmode.style.display = "none";
   lightmode.style.display = "inline";
 });
@@ -118,7 +118,7 @@ lightmode.addEventListener("click", () => {
   sunSound.cloneNode(true).play();
 
   body.classList.remove("darkmode");
-  localStorage.setItem("theme", "light"); 
+  localStorage.setItem("theme", "light");
   lightmode.style.display = "none";
   darkmode.style.display = "inline";
 });
@@ -168,26 +168,26 @@ const leftArrow = document.querySelector(".left-toggle");
 const rightArrow = document.querySelector(".right-toggle");
 
 function enableSidebarToggle() {
-    if (window.innerWidth > 900) {
-        rightArrow.addEventListener("click", rightClickHandler);
-        leftArrow.addEventListener("click", leftClickHandler);
-    } else {
-        rightArrow.removeEventListener("click", rightClickHandler);
-        leftArrow.removeEventListener("click", leftClickHandler);
-    }
+  if (window.innerWidth > 900) {
+    rightArrow.addEventListener("click", rightClickHandler);
+    leftArrow.addEventListener("click", leftClickHandler);
+  } else {
+    rightArrow.removeEventListener("click", rightClickHandler);
+    leftArrow.removeEventListener("click", leftClickHandler);
+  }
 }
 
 // Handlers
 function rightClickHandler() {
-    container.classList.toggle("collapsed");
-    rightArrow.style.display = "none";
-    leftArrow.style.display = "inline";
+  container.classList.toggle("collapsed");
+  rightArrow.style.display = "none";
+  leftArrow.style.display = "inline";
 }
 
 function leftClickHandler() {
-    container.classList.toggle("collapsed");
-    leftArrow.style.display = "none";
-    rightArrow.style.display = "inline";
+  container.classList.toggle("collapsed");
+  leftArrow.style.display = "none";
+  rightArrow.style.display = "inline";
 }
 
 enableSidebarToggle();
@@ -197,9 +197,9 @@ window.addEventListener("resize", enableSidebarToggle);
 
 // Media
 function checkScreen() {
-    if (window.innerWidth < 900 && container.classList.contains("collapsed")) {
-        container.classList.remove("collapsed");
-    }
+  if (window.innerWidth < 900 && container.classList.contains("collapsed")) {
+    container.classList.remove("collapsed");
+  }
 }
 
 window.addEventListener("resize", checkScreen);
@@ -335,22 +335,73 @@ document.querySelectorAll(".popup-close").forEach(btn => {
 
 
 
+
+// Select all slideshow containers
+const slideshows = document.querySelectorAll('.slideshow');
+
+slideshows.forEach((slideshow) => {
+  const slides = slideshow.querySelectorAll('img');
+  const dotsContainer = slideshow.querySelector('.dots');
+  let currentIndex = 0;
+
+  // Create dots dynamically for each slideshow
+  slides.forEach((_, index) => {
+    const dot = document.createElement('span');
+    if (index === 0) dot.classList.add('active');
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = dotsContainer.querySelectorAll('span');
+
+  // Function to show specific slide
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+      dots[i].classList.toggle('active', i === index);
+    });
+  }
+
+  // Show next image
+  function showNextImage() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+  }
+
+  // Allow manual click on dots
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      currentIndex = index;
+      showSlide(currentIndex);
+    });
+  });
+
+  // Initialize slideshow
+  showSlide(currentIndex);
+
+  // Auto-change every 3 seconds
+  setInterval(showNextImage, 3000);
+});
+
+
+
+
+
 // MOBILE ALERT 
 const alertBox = document.getElementById('mobile-alert');
 const closeBtn = document.getElementById('close-alert');
 
 function showMobileAlert() {
-    const dismissed = sessionStorage.getItem('mobileAlertDismissed');
-    if (window.innerWidth <= 900 && !dismissed) {
-        alertBox.style.display = 'block';
-    }else {
-        alertBox.style.display = 'none'; 
-    }
+  const dismissed = sessionStorage.getItem('mobileAlertDismissed');
+  if (window.innerWidth <= 900 && !dismissed) {
+    alertBox.style.display = 'block';
+  } else {
+    alertBox.style.display = 'none';
+  }
 }
 
 closeBtn.addEventListener('click', () => {
-    alertBox.style.display = 'none';
-    sessionStorage.setItem('mobileAlertDismissed', 'true');
+  alertBox.style.display = 'none';
+  sessionStorage.setItem('mobileAlertDismissed', 'true');
 });
 
 showMobileAlert();
