@@ -221,27 +221,42 @@ const work = document.querySelector(".work");
 const aboutme = document.querySelector(".aboutme");
 const contact = document.querySelector(".contact");
 
-// ====== Popup functions for mobile ======
+// ====== Popup functions ======
 function openPopup(section) {
   section.classList.add("active");
+  section.style.transform = "translateY(0)";
+  section.style.opacity = "1";
 }
 
 function closePopup(section) {
   section.classList.remove("active");
+
+  // smooth closing animation
+  section.style.transition = "transform 0.5s ease, opacity 0.4s ease";
+  section.style.transform = "translateY(100%)";
+  section.style.opacity = "0";
+
+  // reset after animation to ensure it reopens correctly
+  setTimeout(() => {
+    section.style.transition = "";
+    section.style.transform = "";
+  }, 500);
 }
 
 // ====== Initial display ======
 function setInitialDisplay() {
   if (window.innerWidth > 800) {
-    // Desktop layout
     home.style.display = "flex";
     work.style.display = "none";
     aboutme.style.display = "none";
     contact.style.display = "none";
   } else {
-    // Mobile layout: keep intro visible, popups hidden
     home.style.display = "flex";
-    [work, aboutme, contact].forEach(s => s.classList.remove("active"));
+    [work, aboutme, contact].forEach(s => {
+      s.classList.remove("active");
+      s.style.transform = "translateY(100%)";
+      s.style.opacity = "0";
+    });
   }
 }
 setInitialDisplay();
@@ -259,13 +274,11 @@ updateHighlight(home_btn);
 // ====== Sidebar click handlers ======
 home_btn.addEventListener("click", () => {
   if (window.innerWidth > 800) {
-    // Desktop
     home.style.display = "flex";
     work.style.display = "none";
     aboutme.style.display = "none";
     contact.style.display = "none";
   } else {
-    // Mobile: close all popups, keep intro visible
     [work, aboutme, contact].forEach(s => closePopup(s));
     home.style.display = "flex";
   }
@@ -275,16 +288,14 @@ home_btn.addEventListener("click", () => {
 
 work_btn.addEventListener("click", () => {
   if (window.innerWidth > 800) {
-    // Desktop
     home.style.display = "none";
     work.style.display = "block";
     aboutme.style.display = "none";
     contact.style.display = "none";
   } else {
-    // Mobile popup
     openPopup(work);
     [aboutme, contact].forEach(s => closePopup(s));
-    home.style.display = "flex"; // intro always visible
+    home.style.display = "flex";
   }
   updateHighlight(work_btn);
   popupSound.play();
@@ -292,13 +303,11 @@ work_btn.addEventListener("click", () => {
 
 aboutme_btn.addEventListener("click", () => {
   if (window.innerWidth > 800) {
-    // Desktop
     home.style.display = "none";
     work.style.display = "none";
     aboutme.style.display = "block";
     contact.style.display = "none";
   } else {
-    // Mobile popup
     openPopup(aboutme);
     [work, contact].forEach(s => closePopup(s));
     home.style.display = "flex";
@@ -309,13 +318,11 @@ aboutme_btn.addEventListener("click", () => {
 
 contact_btn.addEventListener("click", () => {
   if (window.innerWidth > 800) {
-    // Desktop
     home.style.display = "none";
     work.style.display = "none";
     aboutme.style.display = "none";
     contact.style.display = "flex";
   } else {
-    // Mobile popup
     openPopup(contact);
     [work, aboutme].forEach(s => closePopup(s));
     home.style.display = "flex";
@@ -324,11 +331,41 @@ contact_btn.addEventListener("click", () => {
   popupSound.play();
 });
 
-// ====== Close arrow for all popups ======
-document.querySelectorAll(".popup-handle").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const section = btn.closest(".popup-section");
-    closePopup(section);
+// ====== Swipe down to close (for all popups) ======
+document.querySelectorAll(".popup-section").forEach(section => {
+  const handle = section.querySelector(".popup-handle");
+  if (!handle) return;
+
+  let startY = 0;
+  let currentY = 0;
+  let isDragging = false;
+
+  handle.addEventListener("touchstart", (e) => {
+    startY = e.touches[0].clientY;
+    isDragging = true;
+    section.style.transition = "none";
+  });
+
+  handle.addEventListener("touchmove", (e) => {
+    if (!isDragging) return;
+    currentY = e.touches[0].clientY - startY;
+    if (currentY > 0) {
+      section.style.transform = `translateY(${currentY}px)`;
+    }
+  });
+
+  handle.addEventListener("touchend", () => {
+    isDragging = false;
+    section.style.transition = "transform 0.4s ease, opacity 0.3s ease";
+
+    if (currentY > 120) {
+      closePopup(section);
+    } else {
+      section.style.transform = "translateY(0)";
+      section.style.opacity = "1";
+    }
+
+    currentY = 0;
   });
 });
 
