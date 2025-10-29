@@ -27,11 +27,15 @@
     <!-- <div id="preloader">
         <div id="loader-text">0%</div>
     </div> -->
+    <!-- Background Layers -->
+    <div class="layer layer1"></div>
+    <div class="layer layer2"></div>
+    <div class="layer layer3"></div>
 
 
     <div id="mobile-alert" class="mobile-alert">
-        <p>For the best viewing experience, please use a desktop or larger screen. A mobile version is currently in development</p>
-        <!-- <span id="close-alert" class="close-alert">&times;</span> -->
+        <p>For the best viewing experience, please use a desktop or larger screen.</p>
+        <span id="close-alert" class="close-alert">&times;</span>
     </div>
 
 
@@ -64,6 +68,12 @@
             </div>
 
             <div class="nav-container" id="nav-links">
+
+                <a href="#" id="resumeBtn1" class="sound-effect">
+                    <i class="uil uil-book"></i>
+                    <p>Resume</p>
+                </a>
+
                 <!-- Home -->
                 <a href="#" id="home" class="sound-effect">
                     <i class="uil uil-home"></i>
@@ -73,19 +83,19 @@
                 <!-- About Me -->
                 <a href="#" id="aboutme" class="sound-effect">
                     <i class="uil uil-info-circle"></i>
-                    <p>About Me</p>
+                    <p>About</p>
                 </a>
 
                 <!-- Work -->
                 <a href="#" id="myWork" class="sound-effect">
                     <i class="uil uil-folder"></i>
-                    <p>My Work</p>
+                    <p>Work</p>
                 </a>
 
                 <!-- Contact Me -->
                 <a href="#" id="contactme" class="sound-effect">
                     <i class="uil uil-envelope"></i>
-                    <p>Contact Me</p>
+                    <p>Contact</p>
                 </a>
             </div>
         </div>
@@ -93,23 +103,29 @@
         <!--========================================== NAVIGATION ================================================== -->
         <div class="main">
             <div class="intro-container">
-                <h1>Hello, I'm Shekina</h1>
+                <h1>Hey, I'm Shekina</h1>
                 <p> Web Designer, front-end developer, and backend developer.</p>
-                <div class="btn" id="resumeBtn">My Resume</div>
-                <div id="resumePopup1" class="popup-window window2">
+                <div class="btn" id="resumeBtn2">My Resume</div>
+
+                <div id="resumePopup" class="popup-window window2">
                     <div class="popup-header">
                         <span class="popup-title">My Resume</span>
-                        <span class="popup-close" id="resumeClose1">&times;</span>
+                        <span class="popup-close" id="resumeClose">&times;</span>
                     </div>
                     <div class="popup-body">
-                        <iframe src="./CVResume/My_Resume.pdf" class="pdf-frame"></iframe>
+                        <!-- Replace iframe with your preferred option later -->
+                        <a href="./CVResume/My_Resume.pdf" target="_blank" class="resume-btn">View Resume</a>
+                        <a href="./CVResume/My_Resume.pdf" download class="resume-btn secondary">Download</a>
                     </div>
                 </div>
             </div>
             <!-- ================ About Me ========================== -->
             <!-- About Me Section -->
-            <div class="aboutme">
-                <!-- Hero / Intro -->
+            <div class="aboutme popup-section">
+                <div class="head">
+                    <div class="popup-handle"></div>
+                </div>
+                <!-- Intro -->
                 <div class="intro">
                     <h1>About Me</span></h1>
                     <div class="intro-p">
@@ -206,11 +222,16 @@
 
             <!--    Works -->
             <section id="work">
-                <div class="work">
+
+                <div class="work popup-section">
+                    <div class="head">
+                        <div class="popup-handle"></div>
+                    </div>
                     <!-- =============== Flip Card Work ===============  -->
-                    <div class="works">
+                    <div class="works popup-content">
                         <h1>Web Development</h1>
-                        <div class="note">Please note that some of projects are still in progress. But feel free to check
+                        <div class="note">Please note that some of projects are still in progress. But feel free to
+                            check
                             out
                             my github page to check my progress and other projects I've worked on! :)</div>
                         <div class="projects">
@@ -298,13 +319,19 @@
                     </div>
                 </div>
             </section>
-            <section id="contact" class="contact">
-                <div class="contact-container">
-                    <h2>Contact Me</h2>
-                    <p>Want to work with me?
-                        <a href="mailto:mabekashekina@gmail.com">Send me an email</a>
-                    </p>
+            <section>
+                <div class="contact popup-section">
+                    <div class="head">
+                        <div class="popup-handle"></div>
+                    </div>
+                    <div class="contact-container">
+                        <h2>Like what you see?</h2>
+                        <p>Feel Free to contact me!
+                            <a href="mailto:mabekashekina@gmail.com">Send me an email</a>
+                        </p>
+                    </div>
                 </div>
+
             </section>
 
         </div>
@@ -321,6 +348,7 @@
         <div>Designed and coded with love by @Shekina</div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
     <script src="./javascript.js"></script>
 </body>
 

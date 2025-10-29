@@ -1,3 +1,36 @@
+:root {
+    --heading: "Inter", sans-serif;
+    --body: "Rubik", sans-serif;
+    --body-background: #fdf9ff;
+    --background-color: #f4f8ff; 
+    --nav-color: #2c2a47; 
+    --heading-color: #4a5fc1; 
+    --black: #2f2e41; 
+    --hightlight-text: #ffffff;
+    --highlight-color: #f4b7c9; 
+    --accent-color: #9ec8ff; 
+    --skills: #ffe3ed;
+    --card: #ffffff;
+    --cardH: #4a5fc1;
+    --footer-img: #ffcad4; 
+}
+
+.darkmode {
+    --body-background: #0d1025;
+    --nav-color: #14182f;
+    --background-color: linear-gradient(#1b2149, #0d1025);
+    --heading-color: #ffb6c9;
+    --black: #f7f9ff; 
+    --highlight-color: #9bb6ff; 
+    --hightlight-text: #0d1025;
+    --accent-color:  #2e6ccf; 
+    --skills: #4a5fc1;
+    --card: #1a1f3d;
+    --cardH: #ff8fb1;
+    --footer-img: #9bb6ff;
+}
+
+
 * {
     margin: 0;
     text-decoration: none;
@@ -22,41 +55,50 @@ body {
     align-items: center;
 }
 
-
-:root {
-    --heading: "Inter", sans-serif;
-    --body: "Rubik", sans-serif;
-    --body-background: white;
-    --nav-color: #2F2E41;
-    --background-color: #f7f7f7;
-    --main-colors: #EDD9F2;
-    --heading-color: #4744A6;
-    --black: rgb(56, 56, 56);
-    --highlight-color: #4744A6;
-    --hightlight-text: white;
-    --accent-color: #FFDBBB;
-    --skills: #EDD9F2;
-    --card: white;
-    --cardH: black;
-
-    --footer-img: #FFDBBB;
+/* === Paper Cut-Out Layers === */
+.layer {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  /* background-repeat: no-repeat; */
+  background-size: cover;
+  z-index: -3;
+  animation: floatLayer 6s ease-in-out infinite alternate;
 }
 
-.darkmode {
-    --body-background: rgb(1, 2, 27);
-    --nav-color: rgb(4, 5, 39);
-    --background-color: linear-gradient(#4744A6, #1B1A40);
-    --main-colors: #a040b8;
-    --heading-color: #EDD9F2;
-    --black: white;
-    --highlight-color: #EDD9F2;
-    --hightlight-text: black;
-    --accent-color: #0c3c89;
-    --skills: #4744A6;
-    --card: white;
-    --cardH: black;
+/* Generate SVG backgrounds using https://haikei.app/ */
+.layer1 {
+  background-image: url('./svg/layered-waves-haikei.svg');
+  bottom: 0;
+  opacity: 1;
+}
+.layer2 {
+  background-image: url('./svg/layered-waves-haikei2.svg');
+  bottom: -10px;
+  opacity: 0.8;
+  animation-delay: 0.1s;
+}
+.layer3 {
+  background-image: url('./svg/layered-waves-haikei3.svg');
+  bottom: -20px;
+  opacity: 0.6;
+  animation-delay: 0.5s;
+}
 
-    --footer-img: white;
+/* Floating motion for layers */
+@keyframes floatLayer {
+  from { transform: translateY(0); }
+  to { transform: translateY(10px); }
+}
+
+
+.head {
+    display: none;
+}
+
+.close-popup {
+    display: none;
 }
 
 /* ==================Sound================= */
@@ -159,21 +201,25 @@ body {
 }
 
 .nav-container {
-    margin-top: 50px;
+    margin-top: 70px;
     display: flex;
     width: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+}
+
+.nav-container #resumeBtn1 {
+    display: none;
 }
 
 a {
     display: flex;
     justify-content: center;
     align-items: center;
+
     gap: 5px;
-    padding: 15px 0 15px 0;
+    padding: 30px 0 30px 0;
     font-size: 30px;
     color: #F0E6FF;
     transition: 0.4s ease;
@@ -187,12 +233,12 @@ a {
 .bg {
     width: 100%;
     background-color: var(--highlight-color);
-    color: var(--hightlight-text) !important;
+    color: var(--hightlight-text);
 }
 
 .container.collapsed .navbar .nav-container a i {
     transition: 0.4s ease;
-    font-size: 40px;
+    font-size: 30px;
 }
 
 .container.collapsed .navbar .nav-container p {
@@ -266,6 +312,11 @@ a {
 /* ================================ MY WORK ============================= */
 .work {
     display: none;
+    background-color: var(--body-background);
+}
+
+.work-popup {
+    position: relative;
 }
 
 .work-container {
@@ -276,7 +327,7 @@ a {
 }
 
 .works {
-    margin: 50px 20px;
+    padding: 50px 20px;
 }
 
 .works h1 {
@@ -328,7 +379,7 @@ a {
 .normal-card>.normal-container>img {
     width: 350px;
     height: auto;
-    object-fit:cover;
+    object-fit: cover;
 }
 
 .skills {
@@ -338,6 +389,7 @@ a {
 
 .skill-btn {
     display: flex;
+    height: 50px;
     gap: 2px;
 }
 
@@ -349,10 +401,12 @@ a {
 .skills h3 {
     font-size: 20px;
 }
-.skills h4{
+
+.skills h4 {
     color: var(--black);
     margin: 10px 0 10px 0px;
 }
+
 .skills p {
     color: var(--black);
     font-size: 16px;
@@ -406,49 +460,51 @@ a {
 
 /* Slideshow styles */
 .slideshow {
-  position: relative;
-  width: 450px;
-  height: 250px; /* set a visible height */
-  overflow: hidden;
-  border-radius: 10px;
-  background: #f0f0f0; /* temporary background so you can see the box */
+    position: relative;
+    width: 450px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #f0f0f0;
 }
 
 .slideshow img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* or contain if you prefer */
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* or contain if you prefer */
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
 
 .slideshow img.active {
-  opacity: 1;
+    opacity: 1;
 }
+
 /* Progress dots */
 .dots {
-  position: absolute;
-  bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 6px;
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
 }
 
 .dots span {
-  width: 10px;
-  height: 10px;
-  background-color: #bbb;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+    width: 10px;
+    height: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .dots span.active {
-  background-color: var(--accent-color);
+    background-color: var(--accent-color);
 }
 
 
@@ -493,21 +549,21 @@ a {
 
 /* ==========================Popup Window ===================*/
 /* STOPPED HERE */
-.popup-window {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 700px;
-    height: 600px;
-    max-width: 95%;
-    max-height: 90%;
-    background: #fff;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    z-index: 3000;
-    overflow: hidden;
+#resumePopup {
+  display: none; /* hidden by default */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 400px;
+  height: 50%;
+  max-height: 300px;
+  background-color: var(--card);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  flex-direction: column;
+  z-index: 1000;
 }
 
 .popup-header {
@@ -538,20 +594,21 @@ a {
 
 /* Body */
 .popup-body {
+    font-family: var(--body);
     padding: 20px;
     text-align: center;
-    height: calc(100% - 100px);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.popup-body img {
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 10px;
+.popup-body a{
+    color: var(--black);
 }
-
+.popup-body a:hover{
+    color: var(--highlight-color);
+}
 
 /* Animation */
 @keyframes fadeIn {
@@ -574,16 +631,9 @@ a {
 
 .aboutme {
     background-color: var(--body-background);
-    margin: 50px 20px;
+    padding: 20px 20px 50px 20px;
     font-family: var(--body);
     color: var(--black);
-}
-
-.aboutme .intro .intro-p {
-    background-color: var(--main-colors);
-    padding: 20px;
-    border-radius: 30px;
-    margin-bottom: 10px;
 }
 
 .intro {
@@ -729,21 +779,19 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 100px 20px;
+    padding: 100px 0;
     display: none;
-    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
     height: 100%;
     transition: all 0.5s ease-in-out;
     overflow: hidden;
+    background-color: var(--body-background);
 }
 
 .contact-container {
     text-align: center;
-    background: var(--body-background);
     padding: 60px 40px;
     border-radius: 30px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -787,10 +835,10 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: var(--accent-color);
-    color: #fff;
+    /* background-color: var(--accent-color);
+    color: #fff; */
     text-align: center;
-    border-top: 2px solid rgba(255, 255, 255, 0.2);
+    /* border-top: 2px solid rgba(255, 255, 255, 0.2); */
 }
 
 .socials {
@@ -803,7 +851,7 @@ footer {
 
 footer div {
     font-size: 17px;
-    color: var(--black)
+    color: #ffe3ed;
 }
 
 footer .socials a {
@@ -816,47 +864,45 @@ footer .socials a {
 }
 
 .socials a p {
-    color: var(--black);
+    color: #ffe3ed;
     font-size: 18px;
 }
 
 /* MOBILE ALERT */
 .mobile-alert {
-    font-family: var(--body);
     display: none;
+    font-family: var(--body);
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(4, 22, 52);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 50vw;
+    height: 50vh;
+    background-color: rgb(151, 162, 180, 0.85);
     color: #fff;
+    border-radius: 20px;
     z-index: 1000;
 }
 
 
 .mobile-alert p {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    align-items: center;
     text-align: center;
-    font-size: 25px;
-    max-width: 80%;
+    font-size: 20px;
     line-height: 1.5;
 }
 
 /* Close button */
-/* .close-alert {
+.close-alert {
     position: absolute;
     top: 20px;
     right: 20px;
     font-size: 30px;
     cursor: pointer;
-    color: #fff;
+    color: #000000;
     user-select: none;
     transition: color 0.3s;
-} */
+}
 
 .close-alert:hover {
     color: #ff6666;

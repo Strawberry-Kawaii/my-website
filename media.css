@@ -30,6 +30,10 @@ img {
         height: 700px !important;
     }
 
+    .layer {
+        height: 70vh;
+    }
+
     .navbar {
         height: 698px !important;
     }
@@ -58,10 +62,10 @@ img {
 
 
     /* ==========================Popup Window ===================*/
-    .popup-window {
+    /* .popup-window {
         width: 800px;
         height: 600px;
-    }
+    } */
 
     /* =======================ABOUT ME ============= */
     .aboutme h1 {
@@ -140,10 +144,10 @@ img {
     }
 
     /* ==========================Popup Window ===================*/
-    .popup-window {
+    /* .popup-window {
         width: 800px;
         height: 600px;
-    }
+    } */
 }
 
 @media (max-width: 1200px) {
@@ -151,7 +155,7 @@ img {
         height: 550px;
     }
 
-    .intro-container p{
+    .intro-container p {
         text-align: center;
     }
 
@@ -161,11 +165,6 @@ img {
 
     .nav-container a>p {
         font-size: 18px;
-    }
-
-    .popup-window {
-        width: 800px;
-        height: 600px;
     }
 
     .normal-card {
@@ -178,6 +177,7 @@ img {
         margin-bottom: 30px;
         position: relative;
     }
+
     .normal-container {
         display: flex;
         flex-wrap: wrap;
@@ -186,20 +186,393 @@ img {
         gap: 15px;
     }
 
-    .skills .skill-btn{
+    .skills .skill-btn {
         display: flex;
         justify-content: center;
     }
-    
 
+    .slideshow {
+        width: 450px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .container {
+        width: 90%;
+        height: 500px;
+    }
+
+    .navbar {
+        height: 498px;
+    }
+
+    .nav-container a>p {
+        font-size: 16px;
+    }
+
+    .intro-container h1 {
+        font-size: 40px;
+    }
+
+    .intro-container p {
+        font-size: 18px;
+    }
+
+    .slideshow {
+        width: 300px;
+    }
+
+    .contact h2 {
+        font-size: 35px;
+    }
+
+    .aboutme h1 {
+        font-size: 28px;
+    }
+
+    .aboutme p {
+        font-size: 16px;
+    }
+
+
+    .journey h2,
+    .main-skills h2,
+    .fun-facts h2 {
+        font-size: 23px;
+    }
 }
 
 /* =========================== Mobile Styles ========================== */
-@media (max-width: 900px){
+@media (max-width: 800px) {
+
     .mobile-alert{
+        display: flex;
+    }
+
+    .layer {
+        min-height: max-content;
+    }
+
+    .close-popup {
         display: block;
+    }
+
+    .responsive>.sound>i {
+        top: 20px;
+        left: 20px;
+        font-size: 40px;
+    }
+
+    .mode>i {
+        top: 20px;
+        left: 70px;
+        font-size: 40px;
+    }
+
+    .uil-arrow-circle-left,
+    .uil-arrow-circle-right {
+        display: none;
+    }
+
+    .container {
+        display: grid;
+        /* grid-template-columns: 1fr 1fr; */
+        grid-template-rows: 1.2fr 2fr;
+        padding: 20px 0;
+        min-height: fit-content;
+        border: none;
+        overflow-x: hidden;
+        scrollbar-width: none;
+        height: none;
+        margin: 0;
+        width: 90%;
+    }
+
+    .navbar {
+        position: absolute;
+        background-color: transparent;
+        grid-column: span 2;
+        grid-row: 2;
+        left: 50%;
+        right: 50%;
+        width: auto;
+        height: 50%;
+        border: none;
+    }
+
+    .nav-container {
+        margin-top: 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        display: grid;
+        grid-template-columns: 100px 100px;
+        grid-template-rows: 50px;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .nav-container #resumeBtn1 {
+        display: flex;
+    }
+
+    .nav-container #home {
+        display: none;
+    }
+
+    .nav-container a {
+        padding-bottom: 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-container a i {
+        font-size: 40px;
+        background-color: var(--accent-color);
+        color: var(--black);
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 0;
+    }
+
+    .nav-container a>p {
+        font-size: 18px;
+        margin-top: 10px;
+        color: var(--black)
+    }
+
+    .nav-container a:hover {
+        width: auto;
+        background-color: transparent;
+    }
+
+    .nav-container a i:hover {
+        transform: scale(1.05);
+    }
+
+    .main {
+        grid-column: span 2;
+        grid-row: 1;
+    }
+
+
+    .intro-container {
+        display: block;
+        background-color: transparent;
+        background-image: none;
+        color: var(--black);
+        height: auto;
+        margin-bottom: 0;
+        text-align: center;
+    }
+
+    .intro-container h1 {
+        font-size: 40px;
+    }
+
+    .intro-container p {
+        font-size: 20px;
+    }
+
+    .intro-container .btn {
+        display: none;
+    }
+
+    .slideshow {
+        width: 450px;
+    }
+
+    /* ====== UNIVERSAL POPUP STYLE FOR MOBILE (800px ↓) ====== */
+    .head {
+        display: flex;
+    }
+
+    #resumePopup {
+        max-width: 300px;
+        height: 50%;
+        max-height: 300px;
+    }
+
+    .popup-body a{
+        font-size: 25px;
+    }
+
+    .popup-section {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        max-height: 0;
+        backdrop-filter: blur(12px);
+        color: var(--black);
+        border-radius: 25px 25px 0 0;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+        transform: translateY(100%);
+        opacity: 0;
+        overflow-y: auto;
+        transition: transform 0.6s ease, opacity 0.5s ease, max-height 0.6s ease;
+        z-index: 5000;
+    }
+
+
+    .popup-section.active {
+        display: block;
+        max-height: 85vh;
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .popup-section .head {
+        background-color: var(--black);
+        color: var(--hightlight-text);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 12px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 25px 25px 0 0;
+        position: sticky;
+        top: 0;
+        backdrop-filter: blur(10px);
+        z-index: 50001;
+    }
+
+    .popup-handle {
+        width: 60px;
+        height: 6px;
+        background: var(--highlight-color);
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .popup-handle:hover {
+        background: var(--accent-color);
+    }
+
+    .popup-content {
+        padding: 20px;
+    }
+
+    .skill-btn a {
+        width: 100px;
+        font-size: 16px;
+        height: 50px;
+    }
+
+    .head>.header {
+        align-self: end;
+    }
+
+    .aboutme {
+        padding: 0px 20px 50px 20px;
+        ;
+
+    }
+
+    .step {
+        height: auto;
+    }
+
+    .contact a {
+        font-size: 20px;
     }
 }
 
 
 /* =========================== Small Phones ========================== */
+@media (max-width: 600px) {
+
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 50px;
+    }
+
+    .nav-container {
+        margin-top: 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        display: grid;
+        grid-template-columns: 100px 100px;
+        grid-template-rows: 50px;
+    }
+
+    .intro-container h1 {
+        font-size: 39px;
+    }
+
+    .intro-container p {
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    .navbar {
+        margin-top: 10px;
+        top: 32%;
+    }
+
+    .nav-container a i {
+        font-size: 30px;
+    }
+
+    .nav-container {
+        font-size: 18px;
+    }
+
+    .slideshow {
+        width: 300px;
+    }
+
+    .works h1 {
+        font-size: 25px;
+    }
+
+    .note {
+        font-size: 16px;
+    }
+
+    .normal-container h3 {
+        font-size: 20px;
+    }
+
+    .aboutme h1 {
+        font-size: 25px;
+    }
+
+    .aboutme p {
+        font-size: 16px;
+    }
+
+    .journey h2,
+    .main-skills h2,
+    .fun-facts h2 {
+        font-size: 22px;
+    }
+
+    .content h3 {
+        font-size: 18px;
+    }
+
+    .fun-facts li {
+        font-size: 16px;
+    }
+    footer div {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 400px) {
+    .nav-container {
+        grid-template-rows: 50px;
+    }
+}
