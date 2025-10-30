@@ -223,24 +223,18 @@ const contact = document.querySelector(".contact");
 
 // ====== Popup functions ======
 function openPopup(section) {
-  section.classList.add("active");
+  // reset transform before showing
+  section.style.transition = "transform 0.4s ease, opacity 0.3s ease";
   section.style.transform = "translateY(0)";
   section.style.opacity = "1";
+  section.classList.add("active");
 }
 
 function closePopup(section) {
-  section.classList.remove("active");
-
-  // smooth closing animation
-  section.style.transition = "transform 0.5s ease, opacity 0.4s ease";
+  section.style.transition = "transform 0.4s ease, opacity 0.3s ease";
   section.style.transform = "translateY(100%)";
   section.style.opacity = "0";
-
-  // reset after animation to ensure it reopens correctly
-  setTimeout(() => {
-    section.style.transition = "";
-    section.style.transform = "";
-  }, 500);
+  section.classList.remove("active");
 }
 
 // ====== Initial display ======
@@ -331,9 +325,9 @@ contact_btn.addEventListener("click", () => {
   popupSound.play();
 });
 
-// ====== Swipe down to close (for all popups) ======
+// ====== Swipe down to close ======
 document.querySelectorAll(".popup-section").forEach(section => {
-  const handle = section.querySelector(".popup-handle");
+  const handle = section.querySelector(".head");
   if (!handle) return;
 
   let startY = 0;
@@ -368,7 +362,6 @@ document.querySelectorAll(".popup-section").forEach(section => {
     currentY = 0;
   });
 });
-
 
 
 
