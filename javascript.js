@@ -3,38 +3,6 @@
 const popupSound = new Audio('./sound_effects/sharp-pop-328170.mp3');
 popupSound.volume = 0.7;
 
-// PRELOADER 
-// document.addEventListener("DOMContentLoaded", () => {
-//   const preloader = document.getElementById("preloader");
-//   const loaderText = document.getElementById("loader-text");
-
-//   let images = document.images;
-//   let totalImages = images.length;
-//   let loadedImages = 0;
-
-//   if (totalImages === 0) {
-//     loaderText.textContent = "100%";
-//     preloader.style.opacity = "0";
-//     setTimeout(() => preloader.style.display = "none", 500);
-//   } else {
-//     for (let i = 0; i < totalImages; i++) {
-//       let img = new Image();
-//       img.onload = img.onerror = () => {
-//         loadedImages++;
-//         let percent = Math.floor((loadedImages / totalImages) * 100);
-//         loaderText.textContent = percent + "%";
-
-//         if (loadedImages === totalImages) {
-//           setTimeout(() => {
-//             preloader.style.opacity = "0";
-//             setTimeout(() => preloader.style.display = "none", 500);
-//           }, 300);
-//         }
-//       };
-//       img.src = images[i].src;
-//     }
-//   }
-// });
 
 
 // Sound 
@@ -221,6 +189,8 @@ const work = document.querySelector(".work");
 const aboutme = document.querySelector(".aboutme");
 const contact = document.querySelector(".contact");
 
+const caseStudyBtn = document.querySelector("#openProgamingBtn2");
+const caseStudy = document.querySelector(".caseStudy");
 // ====== Popup functions ======
 function openPopup(section) {
   // reset transform before showing
@@ -273,7 +243,7 @@ home_btn.addEventListener("click", () => {
     aboutme.style.display = "none";
     contact.style.display = "none";
   } else {
-    [work, aboutme, contact].forEach(s => closePopup(s));
+    [work, caseStudy, aboutme, contact].forEach(s => closePopup(s));
     home.style.display = "flex";
   }
   updateHighlight(home_btn);
@@ -288,7 +258,7 @@ work_btn.addEventListener("click", () => {
     contact.style.display = "none";
   } else {
     openPopup(work);
-    [aboutme, contact].forEach(s => closePopup(s));
+    [aboutme, caseStudy, contact].forEach(s => closePopup(s));
     home.style.display = "flex";
   }
   updateHighlight(work_btn);
@@ -303,7 +273,7 @@ aboutme_btn.addEventListener("click", () => {
     contact.style.display = "none";
   } else {
     openPopup(aboutme);
-    [work, contact].forEach(s => closePopup(s));
+    [work, caseStudy, contact].forEach(s => closePopup(s));
     home.style.display = "flex";
   }
   updateHighlight(aboutme_btn);
@@ -318,10 +288,17 @@ contact_btn.addEventListener("click", () => {
     contact.style.display = "flex";
   } else {
     openPopup(contact);
-    [work, aboutme].forEach(s => closePopup(s));
+    [work,  caseStudy, aboutme].forEach(s => closePopup(s));
     home.style.display = "flex";
   }
   updateHighlight(contact_btn);
+  popupSound.play();
+});
+
+caseStudyBtn.addEventListener("click", () => {
+  openPopup(caseStudy);
+  [work].forEach(s => closePopup(s));
+  home.style.display = "flex";
   popupSound.play();
 });
 
@@ -413,6 +390,70 @@ slideshows.forEach((slideshow) => {
   setInterval(showNextImage, 3000);
 });
 
+
+// Case Popup
+const openProgamingBtn = document.getElementById("openProgamingBtn");
+const closeProgamingBtn = document.getElementById("closeProgamingBtn");
+const progamingPopup = document.getElementById("progamingPopup");
+const progamingHeader = document.getElementById("progamingHeader");
+
+// Open popup
+openProgamingBtn.addEventListener("click", () => {
+  progamingPopup.classList.remove("hidden2");
+});
+
+// Close popup
+closeProgamingBtn.addEventListener("pointerdown", () => {
+  progamingPopup.classList.add("hidden2");
+});
+
+// Drag functionality (universal for mouse, touch, pen)
+let isDragging = false;
+let offsetX, offsetY;
+let overlay = null;
+
+progamingHeader.addEventListener("pointerdown", (e) => {
+  if (window.innerWidth < 800) return;
+
+  isDragging = true;
+  offsetX = e.clientX - progamingPopup.getBoundingClientRect().left;
+  offsetY = e.clientY - progamingPopup.getBoundingClientRect().top;
+  progamingPopup.style.transition = "none";
+
+  document.body.style.overflow = "hidden"; 
+
+  // 🔒 Transparent overlay to block background interactions
+ overlay = document.createElement("div");
+overlay.style.position = "fixed";
+overlay.style.top = "0";
+overlay.style.left = "0";
+overlay.style.width = "100%";
+overlay.style.height = "100%";
+overlay.style.zIndex = "9000";
+overlay.style.background = "transparent";
+overlay.style.pointerEvents = "none";
+document.body.appendChild(overlay);
+
+  // Capture pointer so drag continues even if pointer leaves header
+  progamingHeader.setPointerCapture(e.pointerId);
+});
+
+document.addEventListener("pointerup", () => {
+  if (!isDragging) return;
+  isDragging = false;
+  progamingPopup.style.transition = "0.3s ease";
+
+  document.body.style.overflow = ""; // ✅ allow scroll again after drag
+});
+
+document.addEventListener("pointermove", (e) => {
+  if (!isDragging) return;
+  e.preventDefault(); // prevent unwanted selections or scrolling
+
+  progamingPopup.style.left = `${e.clientX - offsetX}px`;
+  progamingPopup.style.top = `${e.clientY - offsetY}px`;
+  progamingPopup.style.transform = "none";
+});
 
 
 

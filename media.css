@@ -103,11 +103,11 @@ img {
 @media (max-width: 1300px) {
     .container {
         width: 80%;
-        height: 550px;
+        height: 500px;
     }
 
     .navbar {
-        height: 548px
+        height: 498px
     }
 
     .nav-container a>p {
@@ -150,7 +150,7 @@ img {
     } */
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1000px) {
     .container {
         height: 550px;
     }
@@ -388,6 +388,12 @@ img {
     }
 
     /* ====== UNIVERSAL POPUP STYLE FOR MOBILE (800px ↓) ====== */
+    #openProgamingBtn{
+        display: none;
+    }
+    #openProgamingBtn2{
+        display: flex;
+    }
     .head {
         display: flex;
     }
@@ -403,6 +409,7 @@ img {
     }
 
     .popup-section {
+        display: block;
         position: fixed;
         bottom: 0;
         left: 0;
@@ -460,6 +467,58 @@ img {
 
     .popup-content {
         padding: 20px;
+        background-color: var(--body-background);
+    }
+
+    .case-content h2{
+        font-size: 25px;
+        padding-bottom: 30px;
+    }
+    .case-content h3{
+        font-size: 20px;
+        padding: 20px 0 20px 0px;
+    }
+
+    .case-content .case-img{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding-bottom: 30px;
+        gap: 20px;
+    }
+    .case-content img{
+        width: fit-content;
+        height: auto;
+        object-fit: contain;
+        align-self: center;
+    }
+
+    .case-content p{
+        font-size: 16px;
+        padding-bottom: 30px;
+        padding-right: 15px;
+    }
+    .case-content h4{
+        font-weight: 500;
+        width:max-content;
+        padding: 10px;
+        background-color: var(--skills);
+        border-radius: 30px;
+        cursor: pointer;
+    }
+
+    .case-content h5{
+        font-size: 17px;
+    }
+
+    .case-content h5, .case-content ul{
+        padding: 20px;
+    }
+
+    .case-content h4:hover{
+        background-color: var(--accent-color);
+        color: var(--hightlight-text);
     }
 
     .skill-btn a {
@@ -468,21 +527,32 @@ img {
         height: 50px;
     }
 
+    /* case study */
+    .case-study-popup {
+        display: none !important;
+    }
+
     .head>.header {
         align-self: end;
     }
 
     .aboutme {
-        padding: 0px 20px 50px 20px;
-        ;
+        padding: 0;
+        padding-bottom: 20px;
+    }
 
+    .intro,
+    .journey,
+    .main-skills,
+    .fun-facts {
+        padding: 20px 20px;
     }
 
     .step {
         height: auto;
     }
 
-    .contact{
+    .contact {
         padding: 0;
     }
 
@@ -551,6 +621,9 @@ img {
     .normal-container h3 {
         font-size: 20px;
     }
+    .case-content img{
+        width: fit-content;
+    }
 
     .aboutme h1 {
         font-size: 25px;
@@ -580,7 +653,18 @@ img {
 }
 
 @media (max-width: 400px) {
+    .container{
+        width: 100%;
+    }
     .nav-container {
         grid-template-rows: 50px;
+    }
+    .nav-container a i {
+        font-size: 30px;
+
+    }
+
+    .nav-container a>p {
+        font-size: 16px;
     }
 }
