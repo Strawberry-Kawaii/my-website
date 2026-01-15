@@ -346,6 +346,24 @@ a {
     color: var(--heading-color);
 }
 
+.projects h3{
+    font-size: 30px;
+    font-family: var(--heading);
+    color: var(--heading-color);
+    align-self: baseline;
+}
+.disabled{
+    font-size: 18px;
+    margin-top: 10px;
+    width: 150px;
+    background: var(--accent-color);
+    border-radius: 8px;
+    text-decoration: none;
+}
+.disabled:hover:not(:disabled) {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
 .works,
 .case-content,
 .case-study-body {
